@@ -1,0 +1,15 @@
+<p>list-products works!</p>
+<select [(ngModel)]="filter">
+    <option *ngFor ="let category of categories" value={{category}}>{{category}}</option>
+</select>
+<ol>   
+    <li *ngFor="let product of productList | categoryFilter : filter ">
+        {{product.name}}
+        <button type="button" class="btn btn-success"
+          (click)="selectProduct(product)">Select</button>
+    </li>
+</ol>
+
+<ol>
+  <li></li>  
+</ol>

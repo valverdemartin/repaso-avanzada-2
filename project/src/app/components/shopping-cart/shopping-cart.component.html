@@ -1,0 +1,19 @@
+<p>shopping-cart works!</p>
+<p *ngFor="let product of productList">{{product.name}} <button *ngIf="currentRoute !== '/'" stype="button" style="color: red" (click)="removeProduct(product)">Eliminar</button></p>
+
+<button *ngIf="currentRoute !== '/' && productList.length > 0" (click)="onBuying()">Comprar</button>
+
+<form *ngIf="isBuying" [formGroup]="buyGroup">
+    <div>
+
+        <label>Email</label>
+        <input type='text' name="email" formControlName="email"/>
+    </div>
+    <div>
+
+        <label>Name</label>
+        <input type="text" name="name" formControlName="name"/>
+    </div>
+
+    <button [disabled]="buyGroup.controls['email'].valid && buyGroup.controls['name'].valid">Confirmar compra</button>
+</form>
